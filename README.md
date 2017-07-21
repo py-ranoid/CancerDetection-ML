@@ -18,7 +18,7 @@
 **Donor**: Nick Street
 **Date**: November 1995
 
-####Relevant information
+#### Relevant information
 
 * Features are computed from a digitized image of a fine needle
 	aspirate (FNA) of a breast mass.  They describe
@@ -52,7 +52,7 @@ This database is also available through the UW CS ftp server (Needs UWCS lD):
 **Number of attributes**: 32 (ID, diagnosis, 30 real-valued input features)
 **Missing attribute values**: none
 **Class distribution:** 357 benign, 212 malignantpapers 
-####Attribute information
+#### Attribute information
 
 
 * ID number
@@ -91,7 +91,7 @@ For instance,
 	Breast cancer diagnosis and prognosis via linear programming. 
 	Operations Research, 43(4), pages 570-577, July-August 1995.
 
-####Medical literature
+#### Medical literature
 
 *	W.H. Wolberg, W.N. Street, and O.L. Mangasarian. 
 	Machine learning techniques to diagnose breast cancer from
@@ -115,8 +115,9 @@ For instance,
 	Human Pathology, 26:792--796, 1995.
 
 See also:
-	http://www.cs.wisc.edu/~olvi/uwmp/mpml.html
-	http://www.cs.wisc.edu/~olvi/uwmp/cancer.html
+
+http://www.cs.wisc.edu/~olvi/uwmp/mpml.html
+http://www.cs.wisc.edu/~olvi/uwmp/cancer.html
 
 #### Results from above methods
 

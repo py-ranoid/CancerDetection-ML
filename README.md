@@ -42,7 +42,7 @@
 	Optimization Methods and Software 1, 1992, 23-34].
 
 
-This database is also available through the UW CS ftp server (Needs l):
+This database is also available through the UW CS ftp server (Needs UWCS lD):
 
 	ftp ftp.cs.wisc.edu
 	cd math-prog/cpo-dataset/machine-learn/WDBC/

@@ -16,3 +16,5 @@ def tests(request):
     table = TestTable(Test.objects.all())
     RequestConfig(request).configure(table)
     return render(request, 'prime/table.html', {'table': table})
+
+

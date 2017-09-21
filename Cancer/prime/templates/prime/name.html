@@ -1,9 +1,10 @@
 <html>
 <body style="background-color:lightsteelblue;">
-<h2>Sign Up</h2>
+<pre><h1>Input Attributes</h1></pre>
 <form action="/users/input/" method="post">
     {% csrf_token %}
-    {{ form }}
+    <!-- |linebreaks add new lines. !-->
+    {{ form|linebreaks }}
     <br/>
     <input style="background:lightgreen;" type="submit" value="Submit" />
 </form>

@@ -28,10 +28,13 @@ def get_name(request):
         #check whether it is valid.
         if form.is_valid():
             #process the data in form.cleaned_data as required
+            '''
             print form.cleaned_data['your_name']
             print form.cleaned_data['last_name']
             print form.cleaned_data['doc_id']
             print form.cleaned_data['salary']
+            '''
+            print "hello"
             # redirect to a new URL.
             return HttpResponseRedirect('users/input/')
     #if a GET (or any other method) we'l create a blank form.

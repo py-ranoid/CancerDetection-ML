@@ -20,5 +20,5 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/',include('prime.urls')),
-    #url(r'',include('django.contrib.flatpages.urls')),
+    url(r'^$',include('prime.urls')),
 ]

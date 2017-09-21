@@ -17,7 +17,7 @@ class Test(models.Model):
         def __unicode__(self):
            return self.test_id
         test_id = models.CharField(primary_key=True,max_length=100)
-        log = models.DateTimeField(auto_now=True)
+      	log = models.DateTimeField(auto_now=True)
         doc = models.ForeignKey(Doctor,on_delete = models.CASCADE)
         Attributes = models.CharField(max_length=500,default='Haemoglobin, WBC')
         numattr = models.IntegerField(default=10)

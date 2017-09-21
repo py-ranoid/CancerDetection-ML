@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django_tables2 import RequestConfig
+from django.http import HttpResponseRedirect
 from prime.models import Doctor,Test
 from .tables import DoctorTable,TestTable
 from .forms import NameForm
@@ -27,11 +28,15 @@ def get_name(request):
         #check whether it is valid.
         if form.is_valid():
             #process the data in form.cleaned_data as required
-            #...
+            print form.cleaned_data['your_name']
+            print form.cleaned_data['last_name']
+            print form.cleaned_data['doc_id']
+            print form.cleaned_data['salary']
             # redirect to a new URL.
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('users/input/')
     #if a GET (or any other method) we'l create a blank form.
     else:
+
         form = NameForm()
 
     return render(request,'prime/name.html',{'form':form})

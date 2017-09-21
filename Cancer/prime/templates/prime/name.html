@@ -1,9 +1,11 @@
 <html>
-<body>
-<form action="/users/thanks/" method="post">
+<body style="background-color:lightsteelblue;">
+<h2>Sign Up</h2>
+<form action="/users/input/" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Submit" />
+    <br/>
+    <input style="background:lightgreen;" type="submit" value="Submit" />
 </form>
 </body>
 </html>

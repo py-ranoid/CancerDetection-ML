@@ -6,7 +6,7 @@ from django_tables2 import RequestConfig
 from django.http import HttpResponse
 from prime.models import Doctor, Test
 from .tables import DoctorTable, TestTable
-from .forms import NameForm, NewForm
+from .forms import NameForm, NewForm, LoginForm
 from predictor import predictCancer
 import numpy as np
 import markdown
@@ -88,8 +88,13 @@ def signup(request):
         form = NewForm(request.POST)
         # check whether it is valid.
         if form.is_valid():
+            p = Doctor(doc_id=did, first_name=fname,
+                       last_name=lname, salary=sal)
+            p.save()
+
             # process the data in form.cleaned_data as required
-            return HttpResponseRedirect('users/signup/')
+            return HttpResponse('<html><body style="background-color:lightblue;"><pre style="text-align:center; letter-spacing:1em; font-size:35px;">Succesfully Signed Up !!</pre></body></html>')
+
     # if a GET (or any other method) we'l create a blank form.
     else:
 
@@ -100,3 +105,22 @@ def signup(request):
 
 def about(request):
     return render(request, 'prime/about.html')
+
+
+def newlogin(request):
+    # if this is a POST request, we need to process the form data.
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request.
+        form = LoginForm(request.POST)
+        # check whether it is valid.
+        if form.is_valid():
+            print form.cleaned_data['d_id']
+            print "test"
+            # process the data in form.cleaned_data as required
+            return HttpResponseRedirect('/users/login/')
+    # if a GET (or any other method) we'l create a blank form.
+    else:
+
+        form = LoginForm()
+
+    return render(request, 'prime/newlogin.html', {'form': form})

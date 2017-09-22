@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.safestring import mark_safe
-
+from prime.models import Doctor,Test
+from django.forms.models import inlineformset_factory
 
 class NewForm(forms.Form):
     #your_name : First Name
@@ -9,6 +10,10 @@ class NewForm(forms.Form):
     doc_id = forms.CharField(label=' Registered ID  ',max_length=100)
     salary = forms.IntegerField(label=' Salary         ')
 
+
+class LoginForm(forms.Form):
+    #your_name : First Name
+    d_id = forms.CharField(label='Doc_ID',max_length=100,initial='IND123')
 
 class NameForm(forms.Form):
     radius_mean = forms.FloatField(label=' Radius_Mean ',initial = 14.12729)

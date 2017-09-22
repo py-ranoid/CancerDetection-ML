@@ -3,11 +3,13 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django_tables2 import RequestConfig
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from prime.models import Doctor, Test
 from .tables import DoctorTable, TestTable
 from .forms import NameForm, NewForm
-from Predict
+from predictor import predictCancer
+import numpy as np
+import markdown
 # Create your views here.
 
 
@@ -31,7 +33,7 @@ def get_name(request):
         # check whether it is valid.
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            print form.cleaned_data
+            # print form.cleaned_data
             features = [
                 form.cleaned_data['radius_mean'], form.cleaned_data['texture_mean'], form.cleaned_data['perimeter_mean'],
                 form.cleaned_data['area_mean'], form.cleaned_data['smoothness_mean'], form.cleaned_data['compactness_mean'],
@@ -46,9 +48,19 @@ def get_name(request):
                 form.cleaned_data['fractal_dimension_worst']
             ]
 
+            prob, result = predictCancer(np.array(features).reshape(1, -1))
+            prob = "Probability : " + str(prob * 100) + "%"
             # print "hello"
             # redirect to a new URL.
-            return HttpResponseRedirect('users/input/')
+            htmlbody = """
+                                <html>
+                                <body style="background-color:#440977;color:white;font-family: "Times New Roman", Times, serif;">
+                                <pre style='text-align:center;font-family: "Times New Roman", Times, serif;color:white;vertical-align:middle'><h1>%s</h1></pre>
+                                <pre style='text-align:center;font-family: "Times New Roman", Times, serif;color:white;vertical-align:middle;font-style: italic'><h3>%s</h1></pre>
+                                </body>
+                                </html>
+                                """
+            return HttpResponse(htmlbody % (result, prob))
     # if a GET (or any other method) we'l create a blank form.
     else:
 

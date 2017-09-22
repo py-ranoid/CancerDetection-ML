@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django_tables2 import RequestConfig
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from prime.models import Doctor,Test
 from .tables import DoctorTable,TestTable
 from .forms import NameForm,NewForm
@@ -64,7 +64,7 @@ def get_name(request):
 
             # print "hello"
             # redirect to a new URL.
-            return HttpResponseRedirect('users/input/')
+            return HttpResponse('Poda Baadu')
     #if a GET (or any other method) we'l create a blank form.
     else:
 

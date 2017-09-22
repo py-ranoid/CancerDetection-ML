@@ -5,9 +5,11 @@
 <form action="/users/input/" method="post">
     {% csrf_token %}
     <!-- |linebreaks add new lines. !-->
+
     <table>
     {{ form.as_table }}
     </table>
+
     <br/>
     <input style=" height:30px; width:150px; background:lightgreen;" type="submit" value="Get Diagnosis" />
 </form>
